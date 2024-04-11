@@ -1,5 +1,12 @@
 # KnowledgeBase
 
+- 网络配置问题，主要是不能从外部局域网访问wsl网络，这使得用板子没法挂载wsl里的nfs和使用tftp，网上有些间接的办法解决了这个问题，但很麻烦，懒得去折腾
+
+- 内存占用和硬盘存储不能自动回收，就像VirtualBox和VMWare的虚拟硬盘文件一样，会不断扩大，只能手动回收。
+
+> wsl --update --pre-release
+> 在 %userprofile%.wslconfig 中写入以下内容然后保存
+
 ```bash
 
 [wsl2]
@@ -13,3 +20,13 @@ firewall=true
 autoProxy=true #强制WSL使用Windows的HTTP代理信息
 
 ```
+
+> 然后启用稀疏 VHD 允许 WSL2 的硬盘空间自动回收，运行如下命令
+
+```bash
+
+wsl --manage 发行版名字 --set-sparse true
+
+```
+
+- <https://devblogs.microsoft.com/commandline/windows-subsystem-for-linux-september-2023-update/>

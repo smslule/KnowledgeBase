@@ -29,4 +29,6 @@ wsl --manage 发行版名字 --set-sparse true
 
 ```
 
+## 参考
+
 - <https://devblogs.microsoft.com/commandline/windows-subsystem-for-linux-september-2023-update/>
